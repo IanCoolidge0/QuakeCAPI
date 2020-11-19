@@ -52,36 +52,36 @@ paths:
         409:
           description: an existing choice already exists
 
-    /participatechoice:
-      post:
-        tags:
-        - participant
-        summary: participate in a choice
-        operationId: participateChoice
-        description: Become a participant in an existing choice in the team
-        
-        consumes:
-        - application/json
-        parameters:
-        - in: query
-          name: id
-          description: The uuid of the desired choice
-          type: string
-          format: uuid
-          required: true
-        
-        responses:
-          200:
-            description: participation successful
-          400:
-            description: invalid input, object invalid
-          404:
-            description: desired choice not found
-            
-    /addfeedback:
-      post:
-        tags:
-        - participant
+  /participatechoice:
+    post:
+      tags:
+      - participant
+      summary: participate in a choice
+      operationId: participateChoice
+      description: Become a participant in an existing choice in the team
+      
+      consumes:
+      - application/json
+      parameters:
+      - in: query
+        name: id
+        description: The uuid of the desired choice
+        type: string
+        format: uuid
+        required: true
+      
+      responses:
+        200:
+          description: participation successful
+        400:
+          description: invalid input, object invalid
+        404:
+          description: desired choice not found
+          
+  /addfeedback:
+    post:
+      tags:
+      - participant
       summary: add feedback to alternative
       operationId: addFeedback
       description: using reference to member and alternative ids, adds feedback with content to an alternative
@@ -92,10 +92,10 @@ paths:
       parameters:
       - in: query
         name: contents
-        desscription: The message content of the feedback
+        description: The message content of the feedback
         type: string
         required: true
-      
+    
       responses:
         200:
           description: feedback addded
