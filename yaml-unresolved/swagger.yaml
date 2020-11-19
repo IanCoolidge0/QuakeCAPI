@@ -87,6 +87,8 @@ paths:
       description: using reference to member and alternative ids, adds feedback with content to an alternative
       consumes:
       - application/json
+      produces:
+      - application/json
       parameters:
       - in: query
         name: contents
