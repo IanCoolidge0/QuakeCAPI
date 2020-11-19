@@ -72,6 +72,8 @@ definitions:
         type: array
         items:
           type: string
+      alternativeChosen:
+        type: boolean
   InventoryItem:
     type: object
     required:
