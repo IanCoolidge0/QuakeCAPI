@@ -84,7 +84,7 @@ paths:
       - participant
       summary: add feedback to alternative
       operationId: addFeedback
-      description: using reference to member and alternative ids, adds feedback with content to an alternative
+      description: Using reference to member and alternative ids, adds feedback with content to an alternative
       consumes:
       - application/json
       produces:
@@ -101,6 +101,38 @@ paths:
           description: feedback addded
         400:
           description: invalid input
+  /selectapproval:
+    post:
+      tags:
+      - participant
+      summary: select approval of alternative
+      operationId: selectApproval
+      description: Participant selects approval of an alternative
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        200:
+          description: selected approval
+        400:
+          description: failed to select approval
+  /selectdisapproval:
+    post:
+      tags:
+      - participant
+      summary: select disapproval of alternative
+      operationId: selectDispproval
+      description: Participant selects disapproval of an alternative
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        200:
+          description: selected disapproval
+        400:
+          description: failed to select disapproval
 definitions:
   Choice:
     type: object
@@ -134,6 +166,7 @@ definitions:
         type: boolean
       chosenAlternative:
         $ref: "#/definitions/Alternative"
+        
   Alternative:
     type: object
   
