@@ -77,7 +77,28 @@ paths:
             description: invalid input, object invalid
           404:
             description: desired choice not found
-
+            
+    /addfeedback:
+      post:
+        tags:
+        - participant
+      summary: add feedback to alternative
+      operationId: addFeedback
+      description: using reference to member and alternative ids, adds feedback with content to an alternative
+      consumes:
+      - application/json
+      parameters:
+      - in: query
+        name: contents
+        desscription: The message content of the feedback
+        type: string
+        required: true
+      
+      responses:
+        200:
+          description: feedback addded
+        400:
+          description: invalid input
 definitions:
   Choice:
     type: object
