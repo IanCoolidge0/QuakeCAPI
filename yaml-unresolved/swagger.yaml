@@ -174,7 +174,6 @@ definitions:
     type: object
     required:
       - id
-      - alternativeId
       - memberId
       - contents
     properties:
@@ -182,10 +181,6 @@ definitions:
         type: string
         format: uuid
         example: 91461625-77c9-401f-a559-ae1ef4a87a36
-      alternativeId:
-        type: string
-        format: uuid
-        example: e920a765-1289-4706-841a-b983f1e0bf0b
       memberId:
         type: string
         format: uuid
