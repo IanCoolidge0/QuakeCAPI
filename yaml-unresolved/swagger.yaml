@@ -1,0 +1,114 @@
+swagger: '2.0'
+info:
+  description: This API corresponds to the use cases for the CS 3733 Group Project for team QuakeC. 
+  version: 1.0.0
+  title: CS3733 API
+  # put the contact info for your development or API team
+  contact:
+    email: you@your-company.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: administrator
+  description: Administrators or owners of a team
+- name: participant
+  description: Non-administrator members of a team
+
+paths:
+  /createchoice:
+    post:
+      tags:
+      - participant
+      summary: create a new choice
+      operationId: createChoice
+      description: Adds a new choice to the team with empty alternatives
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: choiceTitle
+        description: Title of the choice to add
+        schema:
+          $ref: '#/definitions/InventoryItem'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+definitions:
+  Choice:
+    type: object
+    required:
+      - name
+      - id
+      - description
+      - memberCount
+      - alternatives
+      - alternativeChosen
+      - chosenAlternative
+    properties:
+      name:
+        type: string
+        example: Hire Interns?
+      id:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      description:
+        type: string
+        example: Does our office want to hire three additional interns?
+      memberCount:
+        type: integer
+        example: 5
+      alternatives:
+        type: array
+        items:
+          type: string
+  InventoryItem:
+    type: object
+    required:
+    - id
+    - name
+    - manufacturer
+    - releaseDate
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      name:
+        type: string
+        example: Widget Adapter
+      releaseDate:
+        type: string
+        format: date-time
+        example: 2016-08-29T09:12:33.001Z
+      manufacturer:
+        $ref: '#/definitions/Manufacturer'
+  Manufacturer:
+    required:
+    - name
+    properties:
+      name:
+        type: string
+        example: ACME Corporation
+      homePage:
+        type: string
+        format: url
+        example:  https://www.acme-corp.com
+      phone:
+        type: string
+        example: 408-867-5309
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /QuakeC/QuakeCProject/1.0.0
+schemes:
+ - https
