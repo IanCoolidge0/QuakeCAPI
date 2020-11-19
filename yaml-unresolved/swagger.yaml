@@ -31,18 +31,53 @@ paths:
       produces:
       - application/json
       parameters:
-      - in: body
-        name: choiceTitle
+      - in: query
+        name: title
         description: Title of the choice to add
-        schema:
-          $ref: '#/definitions/InventoryItem'
+        type: string
+        required: true
+      - in: query
+        name: description
+        description: A brief description of the choice to be added
+        type: string
+        required: true
+
       responses:
         201:
-          description: item created
+          description: choice created
+          schema:
+            $ref: "#/definitions/Choice"
         400:
           description: invalid input, object invalid
         409:
-          description: an existing item already exists
+          description: an existing choice already exists
+
+    /participatechoice:
+      post:
+        tags:
+        - participant
+        summary: participate in a choice
+        operationId: participateChoice
+        description: Become a participant in an existing choice in the team
+        
+        consumes:
+        - application/json
+        parameters:
+        - in: query
+          name: id
+          description: The uuid of the desired choice
+          type: string
+          format: uuid
+          required: true
+        
+        responses:
+          200:
+            description: participation successful
+          400:
+            description: invalid input, object invalid
+          404:
+            description: desired choice not found
+
 definitions:
   Choice:
     type: object
@@ -57,7 +92,7 @@ definitions:
     properties:
       name:
         type: string
-        example: Hire Interns?
+        example: Hire Interns
       id:
         type: string
         format: uuid
@@ -71,9 +106,13 @@ definitions:
       alternatives:
         type: array
         items:
-          type: string
+          $ref: "#/definitions/Alternative"
       alternativeChosen:
         type: boolean
+      chosenAlternative:
+        $ref: "#/definitions/Alternative"
+  Alternative:
+    type: object
   InventoryItem:
     type: object
     required:
