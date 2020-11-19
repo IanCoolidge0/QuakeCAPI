@@ -148,6 +148,29 @@ definitions:
       phone:
         type: string
         example: 408-867-5309
+  Feedback:
+    type: object
+    required:
+      - id
+      - alternativeId
+      - memberId
+      - contents
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: 91461625-77c9-401f-a559-ae1ef4a87a36
+      alternativeId:
+        type: string
+        format: uuid
+        example: e920a765-1289-4706-841a-b983f1e0bf0b
+      memberId:
+        type: string
+        format: uuid
+        example: abde134d-e355-45ff-a56a-5229015c1bf9
+      contents:
+        type: string
+        example: Hiring an intern would improve productivity
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
 basePath: /QuakeC/QuakeCProject/1.0.0
