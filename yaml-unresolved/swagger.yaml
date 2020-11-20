@@ -231,7 +231,7 @@ paths:
         400:
           description: failed to generate report
         201:
-          description: feedback added
+          description: report returned
           schema:
             $ref: "#/definitions/Report"
   /deletestale:
@@ -334,7 +334,6 @@ definitions:
       contents:
         type: string
         example: Hiring an intern would improve productivity
-  
   Report:
     type: object
     required:
