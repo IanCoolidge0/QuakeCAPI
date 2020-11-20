@@ -249,7 +249,7 @@ paths:
       - in: query
         name: numDays
         description: The message content of the feedback
-        type: integer
+        type: float
         required: true
       responses:
         200:
