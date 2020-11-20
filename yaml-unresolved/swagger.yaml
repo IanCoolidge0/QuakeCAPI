@@ -187,6 +187,42 @@ paths:
           description: complete choice
         400:
           description: failed to complete choice
+  /producereport:
+    get:
+      tags:
+      - administrator
+      summary: produce report of choices
+      operationId: produceReport
+      description: admin receives a listing of all choices
+      produces:
+      - application/json
+      responses:
+        200:
+          description: report generated
+        400:
+          description: failed to generate report
+  /deletestale:
+    post:
+      tags:
+      - administrator
+      summary: delete stale choices
+      operationId: deleteStale
+      description: admin deletes all choices that are older than a specified amount
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: numDays
+        description: The message content of the feedback
+        type: integer
+        required: true
+      responses:
+        200:
+          description: stale choices deleted
+        400:
+          description: failed to delete stale choices
       
 definitions:
   Choice:
