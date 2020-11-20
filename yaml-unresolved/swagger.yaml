@@ -156,7 +156,7 @@ paths:
     post:
       tags:
       - participant
-      summary: unselect Approval of alternative
+      summary: unselect approval of alternative
       operationId: unselectApproval
       description: Participant unselects disapproval of an alternative
       consumes:
@@ -178,7 +178,7 @@ paths:
     post:
       tags:
       - participant
-      summary: select disapproval of alternative
+      summary: unselect disapproval of alternative
       operationId: unselectDispproval
       description: Participant unselects disapproval of an alternative
       consumes:
