@@ -249,7 +249,7 @@ paths:
       - in: query
         name: timePassed
         description: the amount of time for which all choices that are older are deleted
-        type: float
+        type: number
         required: true
       responses:
         200:
