@@ -95,6 +95,12 @@ paths:
         description: The message content of the feedback
         type: string
         required: true
+      - in: query
+        name: alternativeId
+        description: id of the alternative the feedback will be  added to
+        type: string
+        format:  uuid
+        required: true
     
       responses:
         200:
@@ -112,6 +118,13 @@ paths:
       - application/json
       produces:
       - application/json
+      parameters:
+        - in: query
+          name: alternativeId
+          description: id of the alternative the approval will be  added to
+          type: string
+          format:  uuid
+          required: true
       responses:
         200:
           description: selected approval
@@ -128,6 +141,13 @@ paths:
       - application/json
       produces:
       - application/json
+      parameters:
+        - in: query
+          name: alternativeId
+          description: id of the alternative the disapproval will be  added to
+          type: string
+          format:  uuid
+          required: true
       responses:
         200:
           description: selected disapproval
@@ -260,6 +280,12 @@ definitions:
         
   Alternative:
     type: object
+    required:
+      - id
+    properties:
+      id:
+        type: string
+        format: uuid
   
   Feedback:
     type: object
