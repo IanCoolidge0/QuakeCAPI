@@ -165,7 +165,7 @@ paths:
           description: unselected disapproval
         400:
           description: failed to unselect disapproval
-  /completechoice
+  /completechoice:
     post:
       tags:
       - participant
