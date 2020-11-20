@@ -247,8 +247,8 @@ paths:
       - application/json
       parameters:
       - in: query
-        name: numDays
-        description: The message content of the feedback
+        name: timePassed
+        description: the amount of time for which all choices that are older are deleted
         type: float
         required: true
       responses:
