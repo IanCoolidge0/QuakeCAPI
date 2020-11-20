@@ -228,10 +228,12 @@ paths:
       produces:
       - application/json
       responses:
-        200:
-          description: report generated
         400:
           description: failed to generate report
+        201:
+          description: feedback added
+          schema:
+            $ref: "#/definitions/Report"
   /deletestale:
     post:
       tags:
@@ -332,6 +334,16 @@ definitions:
       contents:
         type: string
         example: Hiring an intern would improve productivity
+  
+  Report:
+    type: object
+    required:
+      - choices
+    properties:
+      choices:
+        type: array
+        items:
+          $ref: "#/definitions/Choice"
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
 basePath: /QuakeC/QuakeCProject/1.0.0
