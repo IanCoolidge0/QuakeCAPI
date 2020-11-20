@@ -166,11 +166,11 @@ paths:
       - application/json
       parameters:
       - in: query
-          name: alternativeId
-          description: id of the alternative the approval will be subtracted to
-          type: string
-          format:  uuid
-          required: true
+        name: alternativeId
+        description: id of the alternative the approval will be subtracted to
+        type: string
+        format:  uuid
+        required: true
       responses:
         200:
           description: unselected approval
@@ -187,18 +187,18 @@ paths:
       - application/json
       produces:
       - application/json
-      responses:
       parameters:
       - in: query
-          name: alternativeId
-          description: id of the alternative the disapproval will be subtracted to
-          type: string
-          format:  uuid
-          required: true
-        200:
-          description: unselected disapproval
-        400:
-          description: failed to unselect disapproval
+        name: alternativeId
+        description: id of the alternative the disapproval will be subtracted to
+        type: string
+        format:  uuid
+        required: true
+      responses:
+       200:
+        description: unselected disapproval
+       400:
+        description: failed to unselect disapproval
   /completechoice:
     post:
       tags:
