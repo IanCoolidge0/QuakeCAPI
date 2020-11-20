@@ -96,10 +96,9 @@ paths:
         type: string
         required: true
       - in: query
-        name: alternativeId
-        description: id of the alternative the feedback will be  added to
-        type: string
-        format:  uuid
+        name: alternativeNumber
+        description: number of the alternative the feedback will be  added to
+        type: integer
         required: true
     
       responses:
@@ -122,10 +121,9 @@ paths:
       - application/json
       parameters:
         - in: query
-          name: alternativeId
-          description: id of the alternative the approval will be  added to
-          type: string
-          format:  uuid
+          name: alternativeNumber
+          description: number of the alternative the approval will be  added to
+          type: integer
           required: true
       responses:
         200:
@@ -145,10 +143,9 @@ paths:
       - application/json
       parameters:
         - in: query
-          name: alternativeId
-          description: id of the alternative the disapproval will be  added to
-          type: string
-          format:  uuid
+          name: alternativeNumber
+          description: number of the alternative the disapproval will be  added to
+          type: integer
           required: true
       responses:
         200:
@@ -297,27 +294,43 @@ definitions:
   Alternative:
     type: object
     required:
-      - id
+      - number
+      - name
+      - feedback
+      - approvals
+      - disapprovals
     properties:
-      id:
+      number:
+        type: integer
+      name:
         type: string
-        format: uuid
+      feedback:
+        type: array
+        items:
+          $ref: "#/definitions/Feedback"
+      approvals:
+        type: array
+        items:
+          type: string
+      disapprovals:
+        type: array
+        items:
+          type: string
   
   Feedback:
     type: object
     required:
       - id
-      - memberId
+      - member
       - contents
     properties:
       id:
         type: string
         format: uuid
         example: 91461625-77c9-401f-a559-ae1ef4a87a36
-      memberId:
+      member:
         type: string
-        format: uuid
-        example: abde134d-e355-45ff-a56a-5229015c1bf9
+        example: steve
       contents:
         type: string
         example: Hiring an intern would improve productivity
