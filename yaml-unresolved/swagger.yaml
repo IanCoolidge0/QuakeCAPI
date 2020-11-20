@@ -103,8 +103,10 @@ paths:
         required: true
     
       responses:
-        200:
-          description: feedback addded
+        201:
+          description: feedback added
+          schema:
+            $ref: "#/definitions/Feedback"
         400:
           description: invalid input
   /selectapproval:
