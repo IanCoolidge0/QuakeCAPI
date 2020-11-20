@@ -165,10 +165,9 @@ paths:
       - application/json
       parameters:
       - in: query
-        name: alternativeId
-        description: id of the alternative the approval will be subtracted to
-        type: string
-        format:  uuid
+        name: alternativeNumber
+        description: number of the alternative the approval will be subtracted to
+        type: integer
         required: true
       responses:
         200:
@@ -188,10 +187,9 @@ paths:
       - application/json
       parameters:
       - in: query
-        name: alternativeId
-        description: id of the alternative the disapproval will be subtracted to
-        type: string
-        format:  uuid
+        name: alternativeNumber
+        description: number of the alternative the disapproval will be subtracted to
+        type: integer
         required: true
       responses:
        200:
